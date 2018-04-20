@@ -1,5 +1,5 @@
 (async () => {
-  const res = await fetch("http://localhost:3000/users/v3");
+  const res = await fetch("http://localhost:3000/users/v1");
   const users = await res.json(); // array of untrusted data, is it even an array?
 
   const myUsers = users => {

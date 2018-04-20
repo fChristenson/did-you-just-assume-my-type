@@ -57,11 +57,11 @@ const IncomingUser = (() => {
   function IncomingUser(incomingUser) {
     const user = new User();
     const userIsCorrectFormat =
-      !incomingUser ||
-      typeof incomingUser !== "object" ||
-      Array.isArray(incomingUser);
+      incomingUser &&
+      typeof incomingUser === "object" &&
+      !Array.isArray(incomingUser);
 
-    if (userIsCorrectFormat) {
+    if (!userIsCorrectFormat) {
       console.warn("Incoming user is not an object", incomingUser);
       return user;
     }
